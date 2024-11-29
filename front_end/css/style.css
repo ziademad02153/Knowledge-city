@@ -1,0 +1,227 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --card-background: #fff;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+    min-height: 100vh;
+}
+
+.categories {
+    flex: 0 0 280px;
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.categories h2 {
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.categories ul {
+    list-style: none;
+}
+
+.categories li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.categories li:hover,
+.categories li.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: var(--shadow);
+}
+
+.courses {
+    flex: 1;
+    min-width: 0;
+}
+
+#courseGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin: 10px;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.course-card h3 {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.course-card .category-name {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.course-count {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.course-card p {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-line-clamp: 3;
+    -moz-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.course-category {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.course-category:hover {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .categories {
+        flex: 0 0 250px;
+    }
+
+    #courseGrid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .course-card .description {
+        max-height: 3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .categories {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .categories ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .categories li {
+        margin-bottom: 0;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    #courseGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .categories,
+    .course-card {
+        padding: 15px;
+    }
+
+    #courseGrid {
+        grid-template-columns: 1fr;
+    }
+}

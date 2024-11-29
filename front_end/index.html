@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';">
+    <title>Course Catalog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Course Catalog</h1>
+            <div id="loading" class="loading-spinner" style="display: none;">Loading...</div>
+        </header>
+        
+        <aside class="categories">
+            <h2>Categories</h2>
+            <div id="categoryError" class="error-message" style="display: none;"></div>
+            <ul id="categoryList">
+                <li class="active" data-id="all">All Courses</li>
+                <!-- Categories will be loaded here -->
+            </ul>
+        </aside>
+        
+        <main class="courses">
+            <div id="courseError" class="error-message" style="display: none;"></div>
+            <div id="courseGrid">
+                <!-- Courses will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <div id="notification" class="notification" style="display: none;"></div>
+    <script src="js/app.js"></script>
+</body>
+</html>
